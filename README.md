@@ -1,78 +1,55 @@
-# commerical-website-developer-ai-tool
-this is a AI tools this crestes a websites to the user usage: user crestes a websites without coding language 
-import markdown2
-import os
-from pathlib import Path
-from jinja2 import Template
+# 🧠 Commercial Website Developer AI Tool
 
-# Paths
-TEMPLATE_FILE = "template.html"
-OUTPUT_DIR = Path("Blog/Pages")
+This project is an AI-powered tool that helps automate the creation of **commercial websites** using Python. Designed to streamline the process of content posting and static site generation, it's perfect for developers, bloggers, and businesses looking to speed up web development.
 
-# Ensure output folder exists
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+---
 
-def load_template():
-    with open(TEMPLATE_FILE, 'r', encoding='utf-8') as f:
-        return Template(f.read())
+## 🚀 Features
 
-def generate_article(title, slug, meta_desc, md_content, name, company, phone, email, services):
-    template = load_template()
-    html_body = markdown2.markdown(md_content)
+- ✍️ Simple input-based blog creation
+- 🧱 Static HTML page generation
+- 🎨 Custom templates using `template.html`
+- 📦 Automatically saves content with filename and metadata
+- 📃 Markdown-style input supported
+- ⚙️ Easy to modify, deploy, and expand
 
-    # Fill template with blog + contact + services data
-    html_full = template.render(
-        title=title,
-        meta=meta_desc,
-        content=html_body,
-        contact_name=name,
-        contact_company=company,
-        contact_phone=phone,
-        contact_email=email,
-        services=services
-    )
+---
 
-    output_file = OUTPUT_DIR / f"{slug}.html"
-    with open(output_file, 'w', encoding='utf-8') as f:
-        f.write(html_full)
-    print(f"\n✅ Article saved as: {output_file}")
+## 🛠️ Technologies Used
 
-def main():
-    print("\U0001F4C4 Blog Post Generator\n")
+- Python 3.x
+- Jinja2 (for HTML templating)
+- markdown2 (for Markdown conversion)
+- Basic HTML & CSS (template.html)
 
-    title = input("Enter article title: ")
-    slug = input("Enter slug (filename without .html): ")
-    meta = input("Enter meta description: ")
+---
 
-    print("\n\U0001F464 Contact Information:")
-    name = input("Your Name: ")
-    company = input("Company Name: ")
-    phone = input("Phone Number: ")
-    email = input("Gmail ID: ")
+## 📦 Installation
 
-    print("\n\U0001F6E0️ Services Offered:")
-    try:
-        service_count = int(input("How many services do you want to list? "))
-    except ValueError:
-        service_count = 0
+1. **Clone the repo**
 
-    services = []
-    for i in range(service_count):
-        print(f"\n🔹 Service {i+1}")
-        s_title = input("Service Title: ")
-        s_desc = input("Service Description: ")
-        services.append({"title": s_title, "desc": s_desc})
+```bash
+git clone https://github.com/rushiprasanthi/commerical-website-developer-ai-tool.git
+cd commerical-website-developer-ai-tool
+pip install -r requirements.txt
+python blog.py
+You enter:
 
-    print("\n📝 Paste your Markdown content. End with a single line: END")
-    lines = []
-    while True:
-        line = input()
-        if line.strip() == "END":
-            break
-        lines.append(line)
-    md_content = "\n".join(lines)
+Title
 
-    generate_article(title, slug, meta, md_content, name, company, phone, email, services)
+Slug (filename)
 
-if __name__ == "__main__":
-    main()
+Meta description
+
+Markdown content
+you name
+you contact
+your gmail
+your comapany name
+The script uses a pre-defined template.html and generates a clean static HTML blog page inside the Blog/Pages/ folder
+├── blog.py                # Main script
+├── template.html          # HTML layout template
+├── requirements.txt       # Required Python libraries
+├── README.md              # Project documentation
+└── Blog/
+    └── Pages/             # Output HTML pages
