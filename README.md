@@ -32,6 +32,9 @@ This project is an AI-powered tool that helps automate the creation of **commerc
 git clone https://github.com/rushiprasanthi/commerical-website-developer-ai-tool.git
 cd commerical-website-developer-ai-tool
 pip install -r requirements.txt
+
+#####   HOW ITS WORKS    ######:
+
 python blog.py
 You enter:
 
