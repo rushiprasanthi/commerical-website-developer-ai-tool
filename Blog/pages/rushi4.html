@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="{{ meta }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }}</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f9fbfd;
+      color: #2c3e50;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #0d47a1;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    .logo h1 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+
+    .nav-links a {
+      margin-left: 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero */
+    .hero {
+      background-color: #e3f2fd;
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      color: #444;
+    }
+
+    /* Section */
+    .section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .section h3 {
+      color: #0d47a1;
+      font-size: 1.6em;
+      margin-bottom: 10px;
+    }
+
+    .section p, .section ul {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    /* Article/Content Area */
+    .content-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      margin-top: 30px;
+    }
+
+    /* Contact Section */
+    .contact-box {
+      background-color: #e8f0fe;
+      padding: 40px;
+      border-radius: 10px;
+      margin-top: 60px;
+    }
+
+    .contact-box p {
+      margin: 10px 0;
+    }
+
+    .contact-box a {
+      color: #0d47a1;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .nav-links {
+        margin-top: 15px;
+      }
+      .nav-links a {
+        display: block;
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="logo.jpg" alt="Company Logo" />
+      <h1>{{ title }}</h1>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h2>Welcome to {{ title }}</h2>
+    <p>Your trusted software partner for AI, automation & web technologies</p>
+  </div>
+
+  <!-- About -->
+  <div class="section" id="about">
+    <h3>About Us</h3>
+    <p>We specialize in building powerful, user-friendly software solutions using Python, AI/ML, and web automation. Our goal is to simplify your digital journey with reliable and intelligent applications.</p>
+  </div>
+
+  <!-- Services -->
+  <div class="section" id="services">
+    <h3>Our Services</h3>
+    <ul>
+      <li>💻 Web Automation with Python & Selenium</li>
+      <li>🧠 AI/ML with TensorFlow, Pandas, Numpy</li>
+      <li>📈 Data Analysis & Dashboard Creation</li>
+      <li>⚙️ Custom Software Development</li>
+    </ul>
+  </div>
+
+  <!-- Blog Content -->
+  <div class="section">
+    <div class="content-box">
+      <div class="meta">{{ meta }}</div>
+      {{ content | safe }}
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="section" id="contact">
+    <h3>Contact Us</h3>
+    <div class="contact-box">
+      <p><strong>Name:</strong> {{ contact_name }}</p>
+      <p><strong>Company:</strong> {{ contact_company }}</p>
+      <p><strong>Phone:</strong> <a href="tel:{{ contact_phone }}">{{ contact_phone }}</a></p>
+      <p><strong>Email:</strong> <a href="mailto:{{ contact_email }}">{{ contact_email }}</a></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    © {{ title }} | All rights reserved.
+  </div>
+
+</body>
+</html>
