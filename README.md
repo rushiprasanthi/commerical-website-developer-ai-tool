@@ -372,9 +372,3 @@ Author
 - Rushi Prasanthi (GitHub: rushiprasanthi)
 - Project: Commercial Website Developer — Static Blog Generator
 
-Contact & Attribution
-- For questions, reach out via repository issues or open a PR with suggested improvements.
-
-- Create a Dockerfile and a sample LICENSE file and commit them.
-
-Would you like me to push the bugfix and optionally add automated generation (non-interactive mode) and CI workflow as PR(s)?
